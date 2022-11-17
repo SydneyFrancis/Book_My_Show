@@ -46,12 +46,13 @@ public class ShowEntity {
     @JoinColumn(name = "movie_id")
     private MovieEntity movie;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "showEntity",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<TicketEntity> ticketEntities;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     @JsonIgnore
+
     private List<ShowSeatsEntity> showSeatsEntities;
 
 

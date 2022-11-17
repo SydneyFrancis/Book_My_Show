@@ -25,6 +25,6 @@ public class UserEntity {
     private String mobileNumber;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<TicketEntity> listOfTickets;
 }

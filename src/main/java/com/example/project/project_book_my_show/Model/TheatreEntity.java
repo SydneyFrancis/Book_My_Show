@@ -1,7 +1,6 @@
 package com.example.project.project_book_my_show.Model;
 
 
-import com.example.project.project_book_my_show.Enum.TheatreType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -29,11 +28,11 @@ public class TheatreEntity {
 
     private String city;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "theatre",cascade = CascadeType.ALL)
     @JsonIgnore
     List<ShowEntity> all_shows;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "theatre",cascade = CascadeType.ALL)
     @JsonIgnore
     List<TheatreSeatEntity> no_of_seats;
 }

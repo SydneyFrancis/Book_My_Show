@@ -28,6 +28,7 @@ public class TheatreSeatEntity {
 
     @ManyToOne
     @JsonIgnore
+    @JoinColumn
     private TheatreEntity theatre;
 
 }

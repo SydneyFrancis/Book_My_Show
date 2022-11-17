@@ -34,9 +34,11 @@ public class ShowSeatsEntity {
 
     @ManyToOne
     @JsonIgnore
+    @JoinColumn
     private TicketEntity ticket;
 
     @ManyToOne
     @JsonIgnore
+    @JoinColumn
     private ShowEntity show;
 }
