@@ -1,5 +1,7 @@
 package com.example.project.project_book_my_show.Dto;
 
+import com.example.project.project_book_my_show.Dto.EntryDto.ShowEntryDto;
+import com.example.project.project_book_my_show.Dto.EntryDto.UserEntryDto;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,7 +15,7 @@ public class TicketDto {
 
     double amount;
 
-    ShowDto showDto;
+    ShowEntryDto showDto;
 
-    UserDto userDto;
+    UserEntryDto userDto;
 }

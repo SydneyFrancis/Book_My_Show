@@ -31,7 +31,7 @@ public class ShowServiceImpl implements ShowService
 
         ShowEntity showEntity = ShowConverter.convertDtoToEntity(showDto);
 
-        MovieEntity movieEntity = movieRepository.findById(showEntity.getID()).get();
+        MovieEntity movieEntity = movieRepository.findById(showDto.getMovie().getID()).get();
 
         TheatreEntity theatreEntity = theatreRepository.findById(showDto.getTheatre().getID()).get();
 
@@ -43,6 +43,8 @@ public class ShowServiceImpl implements ShowService
         showEntity = showRepository.save(showEntity);
 
         ShowResponseDto showResponseDto = ShowConverter.convertEntityToDto(showEntity);
+        showResponseDto.setTheatre(showDto.getTheatre());
+        showResponseDto.setMovie(showDto.getMovie());
 
 
         return showResponseDto;

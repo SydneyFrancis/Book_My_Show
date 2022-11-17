@@ -1,6 +1,7 @@
 package com.example.project.project_book_my_show.Service.Implementation;
 
 import com.example.project.project_book_my_show.Converter.TicketConverter;
+import com.example.project.project_book_my_show.Dto.EntryDto.BookTicketEntryDto;
 import com.example.project.project_book_my_show.Dto.TicketDto;
 import com.example.project.project_book_my_show.Model.ShowEntity;
 import com.example.project.project_book_my_show.Model.ShowSeatsEntity;
@@ -34,7 +35,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public TicketDto bookTicket(BookTicketReqDto bookTicketReqDto) {
+    public TicketDto bookTicket(BookTicketEntryDto bookTicketReqDto) {
 
         UserEntity user = userRepository.findById(bookTicketReqDto.getID()).get();
 
