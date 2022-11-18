@@ -8,9 +8,11 @@ import com.example.project.project_book_my_show.Repository.MovieRepository;
 import com.example.project.project_book_my_show.Service.MovieService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 
+@Service
 @Slf4j
 public class MovieServiceImpl implements MovieService {
     @Autowired

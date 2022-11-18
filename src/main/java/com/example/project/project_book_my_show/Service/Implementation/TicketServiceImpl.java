@@ -12,12 +12,14 @@ import com.example.project.project_book_my_show.Repository.TicketRepository;
 import com.example.project.project_book_my_show.Repository.UserRepository;
 import com.example.project.project_book_my_show.Service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class TicketServiceImpl implements TicketService {
 
     @Autowired
@@ -31,7 +33,8 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public TicketDto getTicket(int ID) {
-        return null;
+        TicketEntity ticketEntity = ticketRepository.findById(ID).get();
+        return TicketConverter.convertEntityToDto(ticketEntity);
     }
 
     @Override

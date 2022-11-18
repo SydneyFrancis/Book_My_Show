@@ -10,10 +10,12 @@ import com.example.project.project_book_my_show.Repository.ShowSeatsRepository;
 import com.example.project.project_book_my_show.Repository.TheatreRepository;
 import com.example.project.project_book_my_show.Service.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ShowServiceImpl implements ShowService
 {
 
@@ -48,6 +50,12 @@ public class ShowServiceImpl implements ShowService
 
 
         return showResponseDto;
+    }
+
+    @Override
+    public ShowResponseDto getShow(int ID) {
+        ShowEntity show = showRepository.findById(ID).get();
+        return ShowConverter.convertEntityToDto(show);
     }
 
     public void generateShowEntitySeats(List<TheatreSeatEntity> seatEntities,ShowEntity show){

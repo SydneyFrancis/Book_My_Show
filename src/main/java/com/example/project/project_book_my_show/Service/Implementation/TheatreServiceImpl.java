@@ -10,10 +10,12 @@ import com.example.project.project_book_my_show.Repository.TheatreRepository;
 import com.example.project.project_book_my_show.Repository.TheatreSeatRepository;
 import com.example.project.project_book_my_show.Service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TheatreServiceImpl implements TheatreService {
 
 
