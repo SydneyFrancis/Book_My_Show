@@ -16,8 +16,9 @@ import javax.persistence.*;
 @Entity
 public class TheatreSeatEntity {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int ID;
+    private long ID;
 
     private String seatNo;
 

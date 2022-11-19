@@ -33,6 +33,8 @@ public class TheatreServiceImpl implements TheatreService {
             theatreSeatEntity.setTheatre(theatreEntity);
         }
 
+        theatreEntity.setSeats(seats);
+        theatreEntity.setShows(null);
         theatreEntity = theatreRepository.save(theatreEntity);
         return theatreDto;
     }
@@ -45,11 +47,11 @@ public class TheatreServiceImpl implements TheatreService {
         seats.add(getTheatreSeat("1D",100,SeatType.Classic));
         seats.add(getTheatreSeat("1E",100,SeatType.Classic));
 
-        seats.add(getTheatreSeat("2A",100,SeatType.Classic));
-        seats.add(getTheatreSeat("2B",100,SeatType.Classic));
-        seats.add(getTheatreSeat("2C",100,SeatType.Classic));
-        seats.add(getTheatreSeat("2D",100,SeatType.Classic));
-        seats.add(getTheatreSeat("2E",100,SeatType.Classic));
+        seats.add(getTheatreSeat("2A",100,SeatType.Premium));
+        seats.add(getTheatreSeat("2B",100,SeatType.Premium));
+        seats.add(getTheatreSeat("2C",100,SeatType.Premium));
+        seats.add(getTheatreSeat("2D",100,SeatType.Premium));
+        seats.add(getTheatreSeat("2E",100,SeatType.Premium));
 
         theatreSeatRepository.saveAll(seats);
         return  seats;

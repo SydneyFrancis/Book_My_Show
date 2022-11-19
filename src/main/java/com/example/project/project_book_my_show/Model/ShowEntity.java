@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
@@ -31,9 +30,13 @@ public class ShowEntity {
     private LocalTime showTime;
 
     @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date createdAt;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
+    @JsonIgnore
     private Date updatedAt;
 
     @ManyToOne

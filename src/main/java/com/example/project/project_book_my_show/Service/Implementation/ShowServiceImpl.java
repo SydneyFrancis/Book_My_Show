@@ -40,7 +40,7 @@ public class ShowServiceImpl implements ShowService
         showEntity.setMovie(movieEntity);
         showEntity.setTheatre(theatreEntity);
 
-        generateShowEntitySeats(theatreEntity.getNo_of_seats(),showEntity);
+        generateShowEntitySeats(theatreEntity.getSeats(),showEntity);
 
         showEntity = showRepository.save(showEntity);
 

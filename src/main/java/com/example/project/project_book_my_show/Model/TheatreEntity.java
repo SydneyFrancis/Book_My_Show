@@ -30,9 +30,9 @@ public class TheatreEntity {
 
     @OneToMany(mappedBy = "theatre",cascade = CascadeType.ALL)
     @JsonIgnore
-    List<ShowEntity> all_shows;
+    List<ShowEntity> shows;
 
     @OneToMany(mappedBy = "theatre",cascade = CascadeType.ALL)
     @JsonIgnore
-    List<TheatreSeatEntity> no_of_seats;
+    List<TheatreSeatEntity> seats;
 }
