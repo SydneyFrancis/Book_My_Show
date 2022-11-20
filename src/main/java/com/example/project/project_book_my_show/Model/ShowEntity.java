@@ -34,10 +34,18 @@ public class ShowEntity {
     @JsonIgnore
     private Date createdAt;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @JsonIgnore
-    private Date updatedAt;
+    @PrePersist
+    public void createdAt(){
+        this.createdAt = new Date();
+    }
+
+
+
+
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @LastModifiedDate
+//    @JsonIgnore
+//    private Date updatedAt;
 
     @ManyToOne
     @JsonIgnore
