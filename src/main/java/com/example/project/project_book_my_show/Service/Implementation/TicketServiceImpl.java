@@ -35,7 +35,12 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public TicketDto getTicket(int ID) {
         TicketEntity ticketEntity = ticketRepository.findById(ID).get();
-        return TicketConverter.convertEntityToDto(ticketEntity);
+        TicketDto  ticketDto = TicketConverter.convertEntityToDto(ticketEntity);
+        int uID = ticketEntity.getUser().getID();
+        int sID = ticketEntity.getShowEntity().getID();
+        ticketDto.setShowID(sID);
+        ticketDto.setUserID(uID);
+        return ticketDto;
     }
 
     @Override
@@ -46,11 +51,9 @@ public class TicketServiceImpl implements TicketService {
         ShowEntity show = showRepository.findById(bookTicketReqDto.getShowID()).get();
 
         Set<String> requestedSeats = bookTicketReqDto.getRequestedSeats();
-        int idx = 0;
         ArrayList<String> arrayList = new ArrayList<String>();
         for (String str : requestedSeats) {
             arrayList.add(str);
-            System.out.println(arrayList.get(idx++));
         }
 
         List<ShowSeatsEntity> showSeatsEntities = show.getShowSeatsEntities();
@@ -58,7 +61,6 @@ public class TicketServiceImpl implements TicketService {
         List<ShowSeatsEntity> bookedSeats = showSeatsEntities.stream()
                 .filter(seat -> seat.getSeatType().equals(bookTicketReqDto.getSeatType()) && !seat.isBooked() &&
                         requestedSeats.contains(seat.getSeatNo())).collect(Collectors.toList());
-        System.out.println(bookedSeats.size());
 
         if(requestedSeats.size() != bookedSeats.size()){
             throw new Error("All seats not available");

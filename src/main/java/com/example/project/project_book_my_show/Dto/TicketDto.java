@@ -15,7 +15,7 @@ public class TicketDto {
 
     double amount;
 
-    ShowEntryDto showDto;
+    int showID;
 
-    UserEntryDto userDto;
+    int userID;
 }
