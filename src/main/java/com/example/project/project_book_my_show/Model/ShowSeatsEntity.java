@@ -32,6 +32,7 @@ public class ShowSeatsEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date bookedAt;
 
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn

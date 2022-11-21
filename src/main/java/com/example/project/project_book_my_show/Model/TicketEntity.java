@@ -2,6 +2,7 @@ package com.example.project.project_book_my_show.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class TicketEntity {
     private double amount;
 
 
+    @CreationTimestamp
     @CreatedDate
     private Date bookedAt;
 

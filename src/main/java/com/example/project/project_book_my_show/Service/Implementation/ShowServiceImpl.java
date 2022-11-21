@@ -9,6 +9,7 @@ import com.example.project.project_book_my_show.Repository.ShowRepository;
 import com.example.project.project_book_my_show.Repository.ShowSeatsRepository;
 import com.example.project.project_book_my_show.Repository.TheatreRepository;
 import com.example.project.project_book_my_show.Service.ShowService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ShowServiceImpl implements ShowService
 {
 
@@ -60,7 +62,7 @@ public class ShowServiceImpl implements ShowService
 
     public void generateShowEntitySeats(List<TheatreSeatEntity> seatEntities,ShowEntity show){
         List<ShowSeatsEntity> showSeatsEntities = new ArrayList<>();
-
+        log.info("The list of theaterEntity Seats");
         for(TheatreSeatEntity tse : seatEntities){
             ShowSeatsEntity showSeats = ShowSeatsEntity.builder().seatNo(tse.getSeatNo())
                     .seatType(tse.getSeatType()).rate(tse.getRate()).build();

@@ -14,6 +14,7 @@ import com.example.project.project_book_my_show.Service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -45,12 +46,19 @@ public class TicketServiceImpl implements TicketService {
         ShowEntity show = showRepository.findById(bookTicketReqDto.getShowID()).get();
 
         Set<String> requestedSeats = bookTicketReqDto.getRequestedSeats();
+        int idx = 0;
+        ArrayList<String> arrayList = new ArrayList<String>();
+        for (String str : requestedSeats) {
+            arrayList.add(str);
+            System.out.println(arrayList.get(idx++));
+        }
 
         List<ShowSeatsEntity> showSeatsEntities = show.getShowSeatsEntities();
 
         List<ShowSeatsEntity> bookedSeats = showSeatsEntities.stream()
                 .filter(seat -> seat.getSeatType().equals(bookTicketReqDto.getSeatType()) && !seat.isBooked() &&
                         requestedSeats.contains(seat.getSeatNo())).collect(Collectors.toList());
+        System.out.println(bookedSeats.size());
 
         if(requestedSeats.size() != bookedSeats.size()){
             throw new Error("All seats not available");
@@ -68,10 +76,13 @@ public class TicketServiceImpl implements TicketService {
             amount = amount + showSeatsEntitylist.getRate();
         }
 
-        ticketEntity.setAllottedSeats(String.valueOf(bookedSeats));
+        ticketEntity.setAllottedSeats(String.valueOf(arrayList));
         ticketEntity.setAmount(amount);
 
 //        connect in the show and
+        show.getTicketEntities().add(ticketEntity);
+
+        user.getListOfTickets().add(ticketEntity);
 
         ticketEntity = ticketRepository.save(ticketEntity);
 
