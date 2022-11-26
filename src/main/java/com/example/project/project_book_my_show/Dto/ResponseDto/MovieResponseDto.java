@@ -15,5 +15,5 @@ public class MovieResponseDto {
 
     LocalDate releaseDate;
 
-    List<ShowEntryDto> show;
+//    List<ShowEntryDto> show;
 }
