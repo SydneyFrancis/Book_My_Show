@@ -13,7 +13,7 @@ public class TheatreConverter {
 
     public static TheatreResponseDto convertEntityToDto(TheatreEntity theatreEntity){
         return TheatreResponseDto.builder().ID(theatreEntity.getID()).name(theatreEntity.getName())
-                .address(theatreEntity.getAddress()).city(theatreEntity.getCity()).
-                build();
+                .address(theatreEntity.getAddress()).city(theatreEntity.getCity()).show(theatreEntity.getShows()).theatreSeat(theatreEntity.getSeats())
+                .build();
     }
 }

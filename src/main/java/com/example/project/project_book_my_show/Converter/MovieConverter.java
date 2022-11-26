@@ -13,6 +13,7 @@ public class MovieConverter {
 
     public static MovieResponseDto convertEntityToDto(MovieEntity movieEntity){
         return  MovieResponseDto.builder().ID(movieEntity.getID()).name(movieEntity.getName())
-                .releaseDate(movieEntity.getReleaseDate()).build();
+                .releaseDate(movieEntity.getReleaseDate()).show(movieEntity.getShowEntities())
+                .build();
     }
 }

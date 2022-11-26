@@ -52,7 +52,7 @@ public class TicketServiceImpl implements TicketService {
         ArrayList<String> arrayList = new ArrayList<String>();
         for (String str : requestedSeats) {
             arrayList.add(str);
-            System.out.println(arrayList.get(idx++));
+//            System.out.println(arrayList.get(idx++));
         }
 
         List<ShowSeatsEntity> showSeatsEntities = show.getShowSeatsEntities();

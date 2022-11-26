@@ -1,6 +1,7 @@
 package com.example.project.project_book_my_show.Dto.ResponseDto;
 
 import com.example.project.project_book_my_show.Dto.EntryDto.ShowEntryDto;
+import com.example.project.project_book_my_show.Model.ShowEntity;
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,5 +16,5 @@ public class MovieResponseDto {
 
     LocalDate releaseDate;
 
-//    List<ShowEntryDto> show;
+    List<ShowEntity> show;
 }

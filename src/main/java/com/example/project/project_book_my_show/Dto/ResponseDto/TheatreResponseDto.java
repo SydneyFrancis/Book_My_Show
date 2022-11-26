@@ -1,5 +1,7 @@
 package com.example.project.project_book_my_show.Dto.ResponseDto;
 
+import com.example.project.project_book_my_show.Model.ShowEntity;
+import com.example.project.project_book_my_show.Model.TheatreSeatEntity;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,6 +19,7 @@ public class TheatreResponseDto {
     String city;
 
 //    Seats
+    List<TheatreSeatEntity> theatreSeat;
 
-//    List<String> show;
+    List<ShowEntity> show;
 }
