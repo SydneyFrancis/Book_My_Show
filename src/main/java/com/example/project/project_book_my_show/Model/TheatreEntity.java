@@ -28,6 +28,7 @@ public class TheatreEntity {
 
     private String city;
 
+
     @OneToMany(mappedBy = "theatre",cascade = CascadeType.ALL)
     @JsonIgnore
     List<ShowEntity> shows;

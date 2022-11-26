@@ -63,7 +63,6 @@ public class ShowEntity {
 
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     @JsonIgnore
-
     private List<ShowSeatsEntity> showSeatsEntities;
 
 

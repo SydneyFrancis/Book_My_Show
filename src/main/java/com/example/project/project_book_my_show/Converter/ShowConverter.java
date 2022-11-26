@@ -13,6 +13,7 @@ public class ShowConverter {
 
     public static ShowResponseDto convertEntityToDto(ShowEntity show){
         return ShowResponseDto.builder().ID(show.getID()).showDate(show.getShowDate())
-                .showTime(show.getShowTime()).build();
+                .showTime(show.getShowTime())
+                .build();
     }
 }

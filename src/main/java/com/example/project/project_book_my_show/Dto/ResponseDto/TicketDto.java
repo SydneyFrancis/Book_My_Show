@@ -1,4 +1,4 @@
-package com.example.project.project_book_my_show.Dto;
+package com.example.project.project_book_my_show.Dto.ResponseDto;
 
 import com.example.project.project_book_my_show.Dto.EntryDto.ShowEntryDto;
 import com.example.project.project_book_my_show.Dto.EntryDto.UserEntryDto;
@@ -17,5 +17,5 @@ public class TicketDto {
 
     int showID;
 
-    int userID;
+    String userName;
 }

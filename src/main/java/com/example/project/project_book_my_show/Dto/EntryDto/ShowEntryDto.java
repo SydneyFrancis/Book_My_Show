@@ -20,8 +20,8 @@ public class ShowEntryDto {
 
     LocalTime showTime;
 
-    TheatreResponseDto theatre;
+    int theatreID;
 
-    MovieResponseDto movie;
+    int movieID;
 
 }

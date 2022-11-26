@@ -1,14 +1,15 @@
 package com.example.project.project_book_my_show.Controller;
 
 import com.example.project.project_book_my_show.Dto.EntryDto.BookTicketEntryDto;
-import com.example.project.project_book_my_show.Dto.EntryDto.TheatreEntryDto;
-import com.example.project.project_book_my_show.Dto.TicketDto;
+import com.example.project.project_book_my_show.Dto.ResponseDto.TicketDto;
 import com.example.project.project_book_my_show.Service.Implementation.TicketServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {

@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2
 @RestController
 @RequestMapping("/theatre")
 public class TheatreController {
@@ -23,7 +25,7 @@ public class TheatreController {
     }
 
     @GetMapping("getTheatre")
-    public ResponseEntity<TheatreResponseDto> getTheatre(@RequestParam int ID){
+    public ResponseEntity<TheatreResponseDto> getTheatre(@RequestParam("id") int ID){
         return new ResponseEntity<>(theatreService.getTheatre(ID),HttpStatus.FOUND);
     }
 

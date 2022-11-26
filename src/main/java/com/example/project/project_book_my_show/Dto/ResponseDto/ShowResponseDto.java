@@ -15,7 +15,7 @@ public class ShowResponseDto {
 
     LocalTime showTime;
 
-    TheatreResponseDto theatre;
+    String theatreName;
 
-    MovieResponseDto movie;
+    String movieName;
 }

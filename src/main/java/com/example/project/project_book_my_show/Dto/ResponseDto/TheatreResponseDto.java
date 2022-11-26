@@ -18,5 +18,5 @@ public class TheatreResponseDto {
 
 //    Seats
 
-    List<ShowResponseDto> showDto;
+//    List<String> show;
 }

@@ -35,9 +35,15 @@ public class ShowServiceImpl implements ShowService
 
         ShowEntity showEntity = ShowConverter.convertDtoToEntity(showDto);
 
-        MovieEntity movieEntity = movieRepository.findById(showDto.getMovie().getID()).get();
+        MovieEntity movieEntity = movieRepository.findById(showDto.getMovieID()).get();
 
-        TheatreEntity theatreEntity = theatreRepository.findById(showDto.getTheatre().getID()).get();
+
+
+        TheatreEntity theatreEntity = theatreRepository.findById(showDto.getTheatreID()).get();
+
+        String theatrename = theatreEntity.getName();
+        String movieName = movieEntity.getName();
+
 
         showEntity.setMovie(movieEntity);
         showEntity.setTheatre(theatreEntity);
@@ -47,8 +53,8 @@ public class ShowServiceImpl implements ShowService
         showEntity = showRepository.save(showEntity);
 
         ShowResponseDto showResponseDto = ShowConverter.convertEntityToDto(showEntity);
-        showResponseDto.setTheatre(showDto.getTheatre());
-        showResponseDto.setMovie(showDto.getMovie());
+        showResponseDto.setTheatreName(theatreEntity.getName());
+        showResponseDto.setMovieName(movieEntity.getName());
 
 
         return showResponseDto;
@@ -57,7 +63,9 @@ public class ShowServiceImpl implements ShowService
     @Override
     public ShowResponseDto getShow(int ID) {
         ShowEntity show = showRepository.findById(ID).get();
-        return ShowConverter.convertEntityToDto(show);
+
+        ShowResponseDto showResponseDto = ShowConverter.convertEntityToDto(show);
+        return  showResponseDto;
     }
 
     public void generateShowEntitySeats(List<TheatreSeatEntity> seatEntities,ShowEntity show){

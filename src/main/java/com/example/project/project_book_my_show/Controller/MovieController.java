@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
@@ -22,7 +24,7 @@ public class MovieController {
     }
 
     @GetMapping("/getMovie")
-    public ResponseEntity<MovieResponseDto> getMovie(@RequestParam int ID){
+    public ResponseEntity<MovieResponseDto> getMovie(@RequestParam("id") int ID){
         return new ResponseEntity<>(movieService.getMovie(ID),HttpStatus.FOUND);
     }
 }
