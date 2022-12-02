@@ -19,12 +19,14 @@ public class MovieServiceImpl implements MovieService {
     MovieRepository movieRepository;
 
     @Override
-    public MovieResponseDto addMovie(MovieEntryDto movieDto) {
-
+    public MovieResponseDto addMovie(MovieEntryDto movieDto) throws Exception {
 
         log.info("Adding movie",movieDto);
 
-
+        MovieEntity movie = movieRepository.findByName(movieDto.getName());
+        if(movie != null){
+            throw new Exception("movie already Exists");
+        }
 //
         MovieEntity movieEntity = MovieConverter.convertDtoTOEntity(movieDto);
         movieEntity = movieRepository.save(movieEntity);

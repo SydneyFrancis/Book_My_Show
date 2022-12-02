@@ -18,7 +18,7 @@ public class MovieController {
     MovieServiceImpl movieService;
 
     @PostMapping("/addMovie")
-    public ResponseEntity addMovie(@RequestBody MovieEntryDto movieEntryDto){
+    public ResponseEntity addMovie(@RequestBody MovieEntryDto movieEntryDto) throws Exception {
         movieService.addMovie(movieEntryDto);
         return new ResponseEntity("Movie added", HttpStatus.ACCEPTED);
     }

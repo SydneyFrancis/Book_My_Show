@@ -7,7 +7,7 @@ public interface MovieService {
 
 //    add movie
 
-    MovieResponseDto addMovie(MovieEntryDto movieDto);
+    MovieResponseDto addMovie(MovieEntryDto movieDto) throws Exception;
 
     MovieResponseDto getMovie(int ID);
 }

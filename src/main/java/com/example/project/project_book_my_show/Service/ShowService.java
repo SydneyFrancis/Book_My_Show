@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 public interface ShowService {
 
-    ShowResponseDto addShow(ShowEntryDto showDto);
+    void addShow(ShowEntryDto showDto);
 
 //    get show
     ShowResponseDto getShow(int ID);

@@ -31,7 +31,7 @@ public class ShowServiceImpl implements ShowService
     MovieRepository movieRepository;
 
     @Override
-    public ShowResponseDto addShow(ShowEntryDto showDto) {
+    public void addShow(ShowEntryDto showDto) {
 
         ShowEntity showEntity = ShowConverter.convertDtoToEntity(showDto);
 
@@ -52,12 +52,12 @@ public class ShowServiceImpl implements ShowService
 
         showEntity = showRepository.save(showEntity);
 
-        ShowResponseDto showResponseDto = ShowConverter.convertEntityToDto(showEntity);
-        showResponseDto.setTheatreName(theatreEntity.getName());
-        showResponseDto.setMovieName(movieEntity.getName());
+//        ShowResponseDto showResponseDto = ShowConverter.convertEntityToDto(showEntity);
+//        showResponseDto.setTheatreName(theatreEntity.getName());
+//        showResponseDto.setMovieName(movieEntity.getName());
 
 
-        return showResponseDto;
+//        return showResponseDto;
     }
 
     @Override
